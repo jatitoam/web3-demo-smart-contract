@@ -295,7 +295,7 @@ fn build_token_metadata_url(token_id: &ContractTokenId) -> String {
 
 /// Initialize contract instance with no token types initially.
 #[init(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     event = "Cis2Event<ContractTokenId, ContractTokenAmount>"
 )]
 fn contract_init<S: HasStateApi>(
@@ -321,7 +321,7 @@ struct ViewState {
 /// View function that returns the entire contents of the state. Meant for
 /// testing.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "view",
     return_value = "ViewState"
 )]
@@ -368,7 +368,7 @@ fn contract_view<S: HasStateApi>(
 /// Note: Can at most mint 32 token types in one call due to the limit on the
 /// number of logs a smart contract can produce on each function call.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "mint",
     parameter = "MintParams",
     error = "ContractError",
@@ -435,7 +435,7 @@ type TransferParameter = TransferParams<ContractTokenId, ContractTokenAmount>;
 /// - Fails to log event.
 /// - Any of the receive hook function calls rejects.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "transfer",
     parameter = "TransferParameter",
     error = "ContractError",
@@ -504,7 +504,7 @@ fn contract_transfer<S: HasStateApi>(
 /// - It fails to parse the parameter.
 /// - Fails to log event.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "updateOperator",
     parameter = "UpdateOperatorParams",
     error = "ContractError",
@@ -549,7 +549,7 @@ fn contract_update_operator<S: HasStateApi>(
 /// It rejects if:
 /// - It fails to parse the parameter.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "operatorOf",
     parameter = "OperatorOfQueryParams",
     return_value = "OperatorOfQueryResponse",
@@ -585,7 +585,7 @@ type ContractBalanceOfQueryResponse = BalanceOfQueryResponse<ContractTokenAmount
 /// - It fails to parse the parameter.
 /// - Any of the queried `token_id` does not exist.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "balanceOf",
     parameter = "ContractBalanceOfQueryParams",
     return_value = "ContractBalanceOfQueryResponse",
@@ -618,7 +618,7 @@ type ContractTokenMetadataQueryParams = TokenMetadataQueryParams<ContractTokenId
 /// - It fails to parse the parameter.
 /// - Any of the queried `token_id` does not exist.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "tokenMetadata",
     parameter = "ContractTokenMetadataQueryParams",
     return_value = "TokenMetadataQueryResponse",
@@ -655,7 +655,7 @@ fn contract_token_metadata<S: HasStateApi>(
 /// It rejects if:
 /// - It fails to parse the parameter.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "supports",
     parameter = "SupportsQueryParams",
     return_value = "SupportsQueryResponse",
@@ -688,7 +688,7 @@ fn contract_supports<S: HasStateApi>(
 /// - Sender is not the owner of the contract instance.
 /// - It fails to parse the parameter.
 #[receive(
-    contract = "aesirx_web3_demo_v0004",
+    contract = "aesirx_web3_demo_v0005",
     name = "setImplementors",
     parameter = "SetImplementorsParams",
     error = "ContractError",
